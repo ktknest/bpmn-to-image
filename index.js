@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core');
 const fs = require('fs');
 
 const {
@@ -99,7 +99,7 @@ async function withPage(fn) {
 
   try {
     browser = await puppeteer.launch({
-      headless: 'new'
+      channel: 'chrome',
     });
 
     await fn(await browser.newPage());
